@@ -780,11 +780,11 @@ if(window.snake) {
     window.hi = settings;
   };
 
-  window.snake.christmas = function() {
+  window.snake.tennis = function() {
     return window.snake.scheme({
       score_bar:       '#820003', 
       borders:         '#3da62b', 
-      walls:           '#8a0000', 
+      walls:           '#000000', 
       background:      '#000000', 
       shadows:         '#275812', 
       light_squares:   '#11a70a', 
