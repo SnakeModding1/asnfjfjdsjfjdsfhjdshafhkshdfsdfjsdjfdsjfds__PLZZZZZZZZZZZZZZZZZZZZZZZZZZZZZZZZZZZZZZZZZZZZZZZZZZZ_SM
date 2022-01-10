@@ -299,15 +299,17 @@ if(window.snake) {
 
             const br_data = br_ctx.getImageData(0, 0, 47, 47);
             const br_pix = br_data.data;
+                        settings.custom_yinyang  = settings.custom_yinyang  || [ '#ff5a00', '#00ffb3', ];
+
 
             settings.custom_gradient = settings.custom_gradient || [ '#0095ff', '#ff004d', ];
 
-            let snek1 = hex_to_rgb(settings.custom_gradient[0]);
-            let snek2 = hex_to_rgb(settings.custom_gradient[1]);
-            let snek_eye = rgb_to_hsv(snek1);
-            snek_eye.s = Math.min(snek_eye.s + .13, 1);
-            snek_eye.v = Math.max(snek_eye.v - .62, 0);
-            snek_eye = hsv_to_rgb(snek_eye);
+            let snek21 = hex_to_rgb(settings.custom_yinyang[0]);
+            let snek22 = hex_to_rgb(settings.custom_yinyang[1]);
+            let snek2_eye = rgb_to_hsv(snek1);
+            snek2_eye.s = Math.min(snek_eye.s + .13, 1);
+            snek2_eye.v = Math.max(snek_eye.v - .62, 0);
+            snek2_eye = hsv_to_rgb(snek_eye);
 
 
             for(let y = 0; y < 47; y++) {
@@ -863,7 +865,7 @@ if(window.snake) {
       light_ee:        '#E2EFF1',
       dark_ee:         '#B6D5E1',
       buttons:         '#90B6D1', 
-      custom_gradient: [ '#ff0000', '#008800', ],
+      custom_yinyang:  [ '#00ffff', '#ff77ff', ],
       cane:            true,
       cracker:         true,
       tree:            true,
