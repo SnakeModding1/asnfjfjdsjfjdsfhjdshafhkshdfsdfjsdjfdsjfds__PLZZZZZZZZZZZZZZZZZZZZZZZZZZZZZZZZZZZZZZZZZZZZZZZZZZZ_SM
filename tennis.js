@@ -343,10 +343,6 @@ if(window.snake) {
 
 
 
-            if(document.querySelector('#color').childElementCount > 18)
-              for(let i = document.querySelector('#color').childElementCount - 1; i >= 19; i--)
-                document.querySelector('#color').removeChild(document.querySelector('#color').children[i]);
-
             let q = new Image();
             q.src = 'https://www.google.com/logos/fnbx/snake_arcade/v5/color_18.png';
             q.width = q.height = 47;
