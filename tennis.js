@@ -808,95 +808,9 @@ if(window.snake) {
         }
       }, 250);
     }, 500);
-    window.snake_scheme_epic_cool = settings;
+    window.hi = settings;
   };
 
-  window.snake.tennis = function() {
-    return window.snake.scheme({
-      score_bar:     '#262428',
-      walls:         '#101010',
-      borders:       '#2E2933',
-      shadows:       '#302C35',
-      light_squares: '#47404F',
-      dark_squares:  '#423C49',
-      buttons:       '#131323',
-      sky:           '#191970',
-      separators:    '#201559',
-      burger:        true,
-      lime:          true,
-      red_pepper:    true,
-      grey_skull:    true,
-    });
-  };
-  window.snake.desert = function() {
-    return window.snake.scheme({
-      score_bar:     '#B2A350',
-      background:    '#8C8340',
-      borders:       '#B2A350',
-      walls:         '#7F7339',
-      shadows:       '#A9993C',
-      light_squares: '#E8D56A',
-      dark_squares:  '#C9B95C',
-      cactus:        true,
-    });
-  };
-  window.snake.pool = function() {
-    return window.snake.scheme({
-      score_bar:     '#192544',
-      background:    '#214172',
-      borders:       '#152549',
-      shadows:       '#11529F',
-      light_squares: '#359ECE',
-      dark_squares:  '#3172AF',
-      hotdog:        true,
-    });
-  };
-  window.snake.colorful = function() {
-    return window.snake.scheme({
-      score_bar:     '#5C3E84',
-      background:    '#4B4FA0',
-      borders:       '#686EE2',
-      shadows:       '#D75C4E',
-      light_squares: '#FFA87B',
-      dark_squares:  '#F35C6E',
-    });
-  };
-  window.snake.light = function() {
-    return window.snake.scheme({
-      score_bar:     '#555273',
-      background:    '#C0DDE8',
-      borders:       '#65799B',
-      shadows:       '#A6CCDE',
-      light_squares: '#E2EFF1',
-      dark_squares:  '#B6D5E1',
-      buttons:       '#90B6D1', 
-    });
-  };
-  window.snake.pink = function() {
-    return window.snake.scheme({
-      score_bar:     '#DB3C8A',
-      background:    '#821655',
-      borders:       '#A03271',
-      shadows:       '#B64C9E',
-      light_squares: '#EB92FB',
-      dark_squares:  '#C855BC',
-      buttons:       '#CA50CE',
-    });
-  };
-  window.snake.end = function() {
-    return window.snake.scheme({
-      score_bar:     '#BBBBBB',
-      background:    '#000000',
-      borders:       '#888888',
-      shadows:       '#DDDDDD',
-      light_squares: '#FFFFFF',
-      dark_squares:  '#FFFFFF',
-      sky:           '#eaeaea',
-      separators:    '#aeaeae',
-      buttons:       '#bdbdbd',
-      egg:           true,
-    });
-  };
   window.snake.christmas = function() {
     return window.snake.scheme({
       score_bar:       '#820003', 
@@ -911,8 +825,6 @@ if(window.snake) {
       light_ee:        '#E2EFF1',
       dark_ee:         '#B6D5E1',
       buttons:         '#90B6D1', 
-      custom_gradient: [ '#0095ff', '#0095ff', ],
-      custom_yinyang:  [ '#0095ff', '#0095ff', ],
       cane:            true,
       cracker:         true,
       tree:            true,
