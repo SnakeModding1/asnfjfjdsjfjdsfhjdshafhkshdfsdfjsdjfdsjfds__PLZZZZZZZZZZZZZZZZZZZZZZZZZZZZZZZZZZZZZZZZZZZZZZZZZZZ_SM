@@ -329,6 +329,7 @@ if(window.snake) {
             const br_pix = br_data.data;
 
             settings.tsnake = settings.tsnake || [ '#15ff00', '#e1ff00' ];
+            settings.custom_yinyang = settings.custom_yinyang || [ '#ff5a00', '#00ffb3', ];
 
 
             let snek1 = hex_to_rgb(settings.tsnake[0]);
