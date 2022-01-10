@@ -289,52 +289,6 @@ if(window.snake) {
 
           
 
-          setTimeout(function() {
-
-            const br_ = document.createElement('canvas');
-            br_.width = br_.height = 47;
-            const br_ctx = br_.getContext('2d');
-
-            br_ctx.drawImage(br, 0, 0, 47, 47);
-
-            const br_data = br_ctx.getImageData(0, 0, 47, 47);
-            const br_pix = br_data.data;
-
-            settings.custom_gradient = settings.custom_gradient || [ '#0095ff', '#ff004d', ];
-
-            let snek1 = hex_to_rgb(settings.custom_gradient[0]);
-            let snek2 = hex_to_rgb(settings.custom_gradient[1]);
-            let snek_eye = rgb_to_hsv(snek1);
-            snek_eye.s = Math.min(snek_eye.s + .13, 1);
-            snek_eye.v = Math.max(snek_eye.v - .62, 0);
-            snek_eye = hsv_to_rgb(snek_eye);
-
-
-            for(let y = 0; y < 47; y++) {
-              for(let x = 0; x < 47; x++) {
-                let i = 4 * (x + y * 47);
-                const c = {
-                  r: br_pix[0 + i],
-                  g: br_pix[1 + i],
-                  b: br_pix[2 + i],
-                };
-
-                if(x < 27 && close(c, { r: 0, g: 0, b: 0, }, 8)) {
-                  br_pix[0 + i] = snek1.r;
-                  br_pix[1 + i] = snek1.g;
-                  br_pix[2 + i] = snek1.b;
-                } else if(close(c, { r: 0, g: 0, b: 0, }, 8)) {
-                  br_pix[0 + i] = snek2.r;
-                  br_pix[1 + i] = snek2.g;
-                  br_pix[2 + i] = snek2.b;
-                } else if(close(c, { r: 255, g: 0, b: 0, }, 10, 100, 100)) {
-                  br_pix[0 + i] = snek_eye.r;
-                  br_pix[1 + i] = snek_eye.g;
-                  br_pix[2 + i] = snek_eye.b;
-                }
-              }
-            }
-
 
             br_ctx.putImageData(br_data, 0, 0);
 
@@ -830,7 +784,6 @@ if(window.snake) {
       light_ee:        '#E2EFF1',
       dark_ee:         '#B6D5E1',
       buttons:         '#90B6D1', 
-      custom_gradient: [ '#ff0000', '#008800', ],
       cane:            true,
       cracker:         true,
       tree:            true,
