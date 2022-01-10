@@ -768,16 +768,16 @@ if(window.snake) {
           
                     for(let i = 0; i < 12; i++) {
                       if(i % 2 === 0)
-                        ctx.fillStyle = '${settings.dark_ee || settings.dark_squares}';
+                        ctx.fillStyle = '${settings.dark_screen || settings.dark_squares}';
                       else
-                        ctx.fillStyle = '${settings.light_ee || settings.light_squares}';
+                        ctx.fillStyle = '${settings.light_screen || settings.light_squares}';
                       
                       ctx.fillRect(i * 34, 0, (i + 1) * 34, 34);
                     }
           
                     for(let i = 0; i < 12; i++) {
                       if(i % 2 === 0)
-                        ctx.fillStyle = '${settings.light_ee || settings.light_squares}';
+                        ctx.fillStyle = '${settings.light_screen || settings.light_squares}';
                       else
                         ctx.fillStyle = '${settings.dark_ee || settings.dark_squares}';
                       
@@ -786,9 +786,9 @@ if(window.snake) {
           
                     for(let i = 0; i < 12; i++) {
                       if(i % 2 === 0)
-                        ctx.fillStyle = '${settings.dark_ee || settings.dark_squares}';
+                        ctx.fillStyle = '${settings.dark_screen || settings.dark_squares}';
                       else
-                        ctx.fillStyle = '${settings.light_ee || settings.light_squares}';
+                        ctx.fillStyle = '${settings.light_screen || settings.light_squares}';
                       
                       ctx.fillRect(i * 34, 70, (i + 1) * 34, canv.height);
                     }
@@ -822,8 +822,8 @@ if(window.snake) {
       dark_squares:    '#20970f', 
       sky:             '#AAAAFF', 
       separators:      '#8888aa', 
-      light_ee:        '#E2EFF1',
-      dark_ee:         '#B6D5E1',
+      light_screen:        '#E2EFF1',
+      dark_screen:         '#B6D5E1',
       buttons:         '#90B6D1', 
       cane:            true,
       cracker:         true,
