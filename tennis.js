@@ -289,13 +289,104 @@ if(window.snake) {
 
           
 
+          setTimeout(function() {
+
+            const br_ = document.createElement('canvas');
+            br_.width = br_.height = 47;
+            const br_ctx = br_.getContext('2d');
+
+            br_ctx.drawImage(br, 0, 0, 47, 47);
+
+            const br_data = br_ctx.getImageData(0, 0, 47, 47);
+            const br_pix = br_data.data;
+
+            settings.custom_gradient = settings.custom_gradient || [ '#0095ff', '#ff004d', ];
+            settings.custom_yinyang  = settings.custom_yinyang  || [ '#ff5a00', '#00ffb3', ];
+
+            let snek1 = hex_to_rgb(settings.custom_gradient[0]);
+            let snek2 = hex_to_rgb(settings.custom_gradient[1]);
+            let snek_eye = rgb_to_hsv(snek1);
+            snek_eye.s = Math.min(snek_eye.s + .13, 1);
+            snek_eye.v = Math.max(snek_eye.v - .62, 0);
+            snek_eye = hsv_to_rgb(snek_eye);
+
+
+            for(let y = 0; y < 47; y++) {
+              for(let x = 0; x < 47; x++) {
+                let i = 4 * (x + y * 47);
+                const c = {
+                  r: br_pix[0 + i],
+                  g: br_pix[1 + i],
+                  b: br_pix[2 + i],
+                };
+
+                if(x < 27 && close(c, { r: 0, g: 0, b: 0, }, 8)) {
+                  br_pix[0 + i] = snek1.r;
+                  br_pix[1 + i] = snek1.g;
+                  br_pix[2 + i] = snek1.b;
+                } else if(close(c, { r: 0, g: 0, b: 0, }, 8)) {
+                  br_pix[0 + i] = snek2.r;
+                  br_pix[1 + i] = snek2.g;
+                  br_pix[2 + i] = snek2.b;
+                } else if(close(c, { r: 255, g: 0, b: 0, }, 10, 100, 100)) {
+                  br_pix[0 + i] = snek_eye.r;
+                  br_pix[1 + i] = snek_eye.g;
+                  br_pix[2 + i] = snek_eye.b;
+                }
+              }
+            }
+
 
             br_ctx.putImageData(br_data, 0, 0);
 
             console.log(br_.toDataURL());
 
+            br2_ctx.drawImage(br, 0, 0, 47, 47);
+
+            const br2_data = br2_ctx.getImageData(0, 0, 47, 47);
+            const br2_pix = br2_data.data;
+
+            let snek21 = hex_to_rgb(settings.custom_yinyang[0]);
+            let snek22 = hex_to_rgb(settings.custom_yinyang[1]);
+            let snek2_eye = rgb_to_hsv(snek21);
+            snek2_eye.s = Math.min(snek2_eye.s + .13, 1);
+            snek2_eye.v = Math.max(snek2_eye.v - .62, 0);
+            snek2_eye = hsv_to_rgb(snek2_eye);
+            
+
+            for(let y = 0; y < 47; y++) {
+              for(let x = 0; x < 47; x++) {
+                let i = 4 * (x + y * 47);
+                const c = {
+                  r: br2_pix[0 + i],
+                  g: br2_pix[1 + i],
+                  b: br2_pix[2 + i],
+                };
+
+                if(x < 27 && close(c, { r: 0, g: 0, b: 0, }, 8)) {
+                  br2_pix[0 + i] = snek21.r;
+                  br2_pix[1 + i] = snek21.g;
+                  br2_pix[2 + i] = snek21.b;
+                } else if(close(c, { r: 0, g: 0, b: 0, }, 8)) {
+                  br2_pix[0 + i] = snek22.r;
+                  br2_pix[1 + i] = snek22.g;
+                  br2_pix[2 + i] = snek22.b;
+                } else if(close(c, { r: 255, g: 0, b: 0, }, 10, 100, 100)) {
+                  br2_pix[0 + i] = snek2_eye.r;
+                  br2_pix[1 + i] = snek2_eye.g;
+                  br2_pix[2 + i] = snek2_eye.b;
+                }
+              }
+            }
+
+            br2_ctx.putImageData(br2_data, 0, 0);
 
 
+
+
+            if(document.querySelector('#color').childElementCount > 18)
+              for(let i = document.querySelector('#color').childElementCount - 1; i >= 19; i--)
+                document.querySelector('#color').removeChild(document.querySelector('#color').children[i]);
 
             let q = new Image();
             q.src = 'https://www.google.com/logos/fnbx/snake_arcade/v5/color_18.png';
@@ -307,6 +398,14 @@ if(window.snake) {
             
 
 
+            eval(
+              code.match(
+                /[a-zA-Z0-9_$]{1,8}=\[\["#4E7CF6","#17439F"\],[^]*?"#6B6B6B"\]\]/
+              )[0].replace(
+                '"#6B6B6B"]]',
+                `"#6B6B6B"], ["${settings.custom_gradient[0]}", "${settings.custom_gradient[1]}"], ["${settings.custom_yinyang[0]}", "${settings.custom_yinyang[1]}"]]`
+              )
+            );
 
             eval(
               code.match(
@@ -784,6 +883,8 @@ if(window.snake) {
       light_ee:        '#E2EFF1',
       dark_ee:         '#B6D5E1',
       buttons:         '#90B6D1', 
+      custom_gradient: [ '#ff0000', '#008800', ],
+      custom_yinyang:  [ '#000000', '#000000', ],
       cane:            true,
       cracker:         true,
       tree:            true,
