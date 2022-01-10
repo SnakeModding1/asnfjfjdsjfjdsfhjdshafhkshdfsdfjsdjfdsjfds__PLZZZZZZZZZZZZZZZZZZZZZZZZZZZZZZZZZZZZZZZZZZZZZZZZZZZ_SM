@@ -445,7 +445,7 @@ if(window.snake) {
             
             if(settings.grey_skull || settings.tball || settings.cactus || settings.hotdog || settings.egg || settings.lime || settings.red_pepper || settings.cane || settings.cracker || settings.tree || settings.custom_url) {
               const normal = {
-                tball:    i('https://i.postimg.cc/B6ycxmBb/porga.png'),
+                tball:    i('https://i.ibb.co/QHDbWrn/ezgif-3-5122a424f32f.png'),
                 cact:    i('https://i.postimg.cc/RCDVL7Bf/index.png'),
                 dog:     i('https://i.postimg.cc/rsrbW0x6/dog.png'),
                 egg:     i('https://i.postimg.cc/501jDL9g/eg.png'),
