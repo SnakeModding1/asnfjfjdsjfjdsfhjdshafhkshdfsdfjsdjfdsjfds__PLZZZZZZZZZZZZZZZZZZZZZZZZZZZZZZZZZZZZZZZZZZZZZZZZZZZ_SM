@@ -277,6 +277,34 @@ if(window.snake) {
 
         function processCode(code) {
 
+          const poisonsnake = code.match(
+            /([a-zA-Z0-9_$]{1,8}\(this\.[a-zA-Z0-9_$]{1,8},"#5282F2","#909090"\);){3}/
+          )[0];
+          console.log(poisonsnake);
+
+          settings.custom_poison = settings.custom_poison || '#909090';
+
+          eval(
+            code.match(
+              /[a-zA-Z0-9_$]{1,8}\.prototype\.update=function\(\){if\([a-zA-Z0-9_$]{1,8}\(this,9\)[^]*?this\)}}}}/
+            )[0].replace(
+              '{',
+              `{
+                ${poisonsnake.replace(/#909090/g, settings.custom_poison)}
+              `
+            )
+          );
+
+          const psrgb = hex_to_rgb(settings.custom_poison);
+          eval(
+            code.match(
+              /[a-zA-Z0-9_$]{1,8}=\[145,145,145\]/
+            )[0].replace(
+              '145,145,145',
+              `${psrgb.r},${psrgb.g},${psrgb.b}`
+            )
+          );
+
           const br = new Image();
           br.src = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAADY0lEQVR4nO2ZMU8VQRRG9///AFsrOytjZSKNDbEiGhMrKUls1ERCMMBagBv37dtl9+3c+e69c04yFZDsnO8AD17XAQAAAAAAAAAAAABUoZ85kJy54YkhOVuGJ4Rk7BmfAIIzGfTs4ra/vnnoj3F5dUcEyRgNOTf8IYdf162LgGCcMRrw8upu1fgbIuBXiXNGAxzy6cu3vu+60Xn1+v3w8e8/7ve+diACIYvj//z1ezL+v/P23fnweWcXtxYREEIFFgOYG384T1zfPBBAUIoEsPBaoHYERLWRCAGsGY2fMCeyGMCH88/ZA2g+hOWfAH3/+Ir/mfENXwOsGalmaOkYCZj7H8D/fwq+ePlm8nHDvwJqB0AEW6n03T83jCK4dEwu73B8RQBEsMTCG0KZAmgmgqOX//j1z+SNIcHw6gCaCEE1aqQA0kagHjZSAOkiUI8aMYA0EagHLSXc4zO5Rz1oadlen8st6kEtJHt+NleoB7UUHOEZpagHrSE20rNWRT1obaERn9kU9agqkVGfuyjqUT2Iy3SXTagH9iQr670WUQ/tUVD2+w2ox3YrpmvkrurR3Qk5IPV91aO7EfEMae/O+OtJd3/G304qD4x/GilcMP4+wjshgP2EdsL4+wnrhfHLEdIP45clnCMCKEs4R4xfnjCe+O63IYwrxrchjC8CsCOELwKwI4QvxrcjhDMCsMW9MwKwxbUzxrfHtTsCsMe1OwKwx7U7ArDHtTsCsMe1OwKwx7U7ArDHtTsCsMe1OwKwx707ArAjhDcCsCOENwKwI4S3WgG0GEEIZwRgQxhnBGBDGGcEYEMYZzUDaCWCcL4IoCzhXBFAOUK6qhlA9ghCeiKAMoT2RAT7Ce2ndgDZIgjvhgBOJ40bIjiNNE4UAUSPIJ0PIlhPSg+qAFxcfgOpHRDBMunvrgzAlYgjNHNvIpjS1H3VAXiS0tJdR6gD8CAn+/0WUQ+vFJX1XptRj15bWKa7FEM9uLXAyM9eDfXQJaWqnzHc+F2nF5bthEQtLcsJjVpe9JMCtcSoJxVqmdFOStRSo5zUqOV6P02gluz1NIVatrfTLGrxHk7zqAdgeAeox2B8J6iHYXwHqAdieCeoB2N4J6gHZHwnqMdkdCeoB2Z4RzA6DDA6HIWhAQAAAAAAALruL5cwHSTkvUUiAAAAAElFTkSuQmCC';
           br.crossOrigin = 'Anonymous';
@@ -300,8 +328,8 @@ if(window.snake) {
             const br_data = br_ctx.getImageData(0, 0, 47, 47);
             const br_pix = br_data.data;
 
-            settings.custom_gradient = settings.custom_gradient || [ '#0095ff', '#ff004d', ];
-            settings.custom_yinyang  = settings.custom_yinyang  || [ '#ff5a00', '#00ffb3', ];
+            settings.custom_gradient = settings.custom_gradient || [ '#0095ff', '#0095ff' ];
+            settings.custom_yinyang  = settings.custom_yinyang  || [ '#0095ff', '#0095ff' ];
 
             let snek1 = hex_to_rgb(settings.custom_gradient[0]);
             let snek2 = hex_to_rgb(settings.custom_gradient[1]);
@@ -437,7 +465,7 @@ if(window.snake) {
                 dog:     i('https://i.postimg.cc/YS6cxmkm/dog.png'),
                 egg:     i('https://i.postimg.cc/PxyBgsCX/eg.png'),
                 lime:    i('https://i.postimg.cc/JnMfY44Y/lime.png'),
-                pepper:  i('https://i.ibb.co/QHDbWrn/ezgif-3-5122a424f32f.pn'),
+                pepper:  i('https://i.postimg.cc/HnLfHZMQ/redpepper.png'),
                 cane:    i('https://i.postimg.cc/Sx9Hyznt/cane.png'),
                 cracker: i('https://i.postimg.cc/d0KpDtdQ/cracker.png'),
                 tree:    i('https://i.postimg.cc/05tTZvgZ/tree.png'),
@@ -555,7 +583,12 @@ if(window.snake) {
               }, 250);
 
 
-              // eval(`var ball_ = new Image(); ball_.src = 'https://i.ibb.co/QHDbWrn/ezgif-3-5122a424f32f.png';`);
+              // eval(`var bu_ = new Image(); bu_.src = 'https://i.postimg.cc/B6ycxmBb/porga.png';`);
+              // eval(`var ca_ = new Image(); ca_.src = 'https://i.postimg.cc/RCDVL7Bf/index.png';`);
+              // eval(`var do_ = new Image(); do_.src = 'https://i.postimg.cc/rsrbW0x6/dog.png';`);
+              // eval(`var eg_ = new Image(); eg_.src = 'https://i.postimg.cc/501jDL9g/eg.png';`);
+              // eval(`var li_ = new Image(); li_.src = 'https://i.postimg.cc/k5kWcyFB/lime.png';`);
+              // eval(`var pe_ = new Image(); pe_.src = 'https://i.postimg.cc/BQqHMbDc/redpepper.png';`);
               // eval(
               //   code.match(
               //     /[a-zA-Z0-9_$]{1,8}=function\(a\){return a\.[a-zA-Z0-9_$]{1,8}\.canvas}/
@@ -564,10 +597,16 @@ if(window.snake) {
               //     `{
               //       if(a.path && a.path.includes('apple') && [...document.querySelector('#apple').children].indexOf(document.getElementsByClassName('DqMRee tuJOWd')[0]) > 21)
               //         return document.querySelector('#apple').getElementsByClassName('DqMRee tuJOWd')[0].src.includes('porga') 
-
-              //         : document.querySelector('#apple').getElementsByClassName('DqMRee tuJOWd')[0].src.includes('ball')
-              //           ? ball_
-              //         
+              //           ? bu_ 
+              //         : document.querySelector('#apple').getElementsByClassName('DqMRee tuJOWd')[0].src.includes('index') 
+              //           ? ca_ 
+              //         : document.querySelector('#apple').getElementsByClassName('DqMRee tuJOWd')[0].src.includes('dog')
+              //           ? do_ 
+              //         : document.querySelector('#apple').getElementsByClassName('DqMRee tuJOWd')[0].src.includes('lime')
+              //           ? li_
+              //         : document.querySelector('#apple').getElementsByClassName('DqMRee tuJOWd')[0].src.includes('pepper')
+              //           ? pe_
+              //         : eg_;
                     
                     
               //     `
@@ -581,7 +620,7 @@ if(window.snake) {
                   /[a-zA-Z0-9_$]{1,8}\.prototype\.[a-zA-Z0-9_$]{1,8}=function\(\){[^}]*?apple[^]*?el\(\)\)}}/
                 )[0].replace(
                   'Math.floor(21*Math.random());',
-                  `Math.floor((21 + ~~${settings.ball} + ~~${settings.ball} + ~~${settings.ball} + ~~${settings.ball} + ~~${settings.ball} + ~~${settings.ball} + ~~${settings.ball} + ~~${!!settings.ball} + ~~${settings.ball}) * Math.random());`
+                  `Math.floor((21 + ~~${settings.burger} + ~~${settings.cactus} + ~~${settings.hotdog} + ~~${settings.egg} + ~~${settings.lime} + ~~${settings.red_pepper} + ~~${settings.cane} + ~~${!!settings.custom_url} + ~~${settings.grey_skull}) * Math.random());`
                 )
               );
             }
@@ -769,7 +808,7 @@ if(window.snake) {
         }
       }, 250);
     }, 500);
-    window.snake_scheme_epic_cool = JSON.stringify(settings);
+    window.snake_scheme_epic_cool = settings;
   };
 
   window.snake.tennis = function() {
@@ -783,8 +822,203 @@ if(window.snake) {
       buttons:       '#131323',
       sky:           '#191970',
       separators:    '#201559',
-      ball:        true,
-      skull:       true
-
+      burger:        true,
+      lime:          true,
+      red_pepper:    true,
+      grey_skull:    true,
     });
   };
+  window.snake.desert = function() {
+    return window.snake.scheme({
+      score_bar:     '#B2A350',
+      background:    '#8C8340',
+      borders:       '#B2A350',
+      walls:         '#7F7339',
+      shadows:       '#A9993C',
+      light_squares: '#E8D56A',
+      dark_squares:  '#C9B95C',
+      cactus:        true,
+    });
+  };
+  window.snake.pool = function() {
+    return window.snake.scheme({
+      score_bar:     '#192544',
+      background:    '#214172',
+      borders:       '#152549',
+      shadows:       '#11529F',
+      light_squares: '#359ECE',
+      dark_squares:  '#3172AF',
+      hotdog:        true,
+    });
+  };
+  window.snake.colorful = function() {
+    return window.snake.scheme({
+      score_bar:     '#5C3E84',
+      background:    '#4B4FA0',
+      borders:       '#686EE2',
+      shadows:       '#D75C4E',
+      light_squares: '#FFA87B',
+      dark_squares:  '#F35C6E',
+    });
+  };
+  window.snake.light = function() {
+    return window.snake.scheme({
+      score_bar:     '#555273',
+      background:    '#C0DDE8',
+      borders:       '#65799B',
+      shadows:       '#A6CCDE',
+      light_squares: '#E2EFF1',
+      dark_squares:  '#B6D5E1',
+      buttons:       '#90B6D1', 
+    });
+  };
+  window.snake.pink = function() {
+    return window.snake.scheme({
+      score_bar:     '#DB3C8A',
+      background:    '#821655',
+      borders:       '#A03271',
+      shadows:       '#B64C9E',
+      light_squares: '#EB92FB',
+      dark_squares:  '#C855BC',
+      buttons:       '#CA50CE',
+    });
+  };
+  window.snake.end = function() {
+    return window.snake.scheme({
+      score_bar:     '#BBBBBB',
+      background:    '#000000',
+      borders:       '#888888',
+      shadows:       '#DDDDDD',
+      light_squares: '#FFFFFF',
+      dark_squares:  '#FFFFFF',
+      sky:           '#eaeaea',
+      separators:    '#aeaeae',
+      buttons:       '#bdbdbd',
+      egg:           true,
+    });
+  };
+  window.snake.christmas = function() {
+    return window.snake.scheme({
+      score_bar:       '#820003', 
+      borders:         '#710000', 
+      walls:           '#8a0000', 
+      background:      '#000000', 
+      shadows:         '#275812', 
+      light_squares:   '#11a70a', 
+      dark_squares:    '#20970f', 
+      sky:             '#AAAAFF', 
+      separators:      '#8888aa', 
+      light_ee:        '#E2EFF1',
+      dark_ee:         '#B6D5E1',
+      buttons:         '#90B6D1', 
+      custom_gradient: [ '#0095ff', '#0095ff', ],
+      custom_yinyang:  [ '#0095ff', '#0095ff', ],
+      cane:            true,
+      cracker:         true,
+      tree:            true,
+    });
+  };
+
+
+
+  function rgb_to_hsv(col) {
+    let R = col.r / 255, G = col.g / 255, B = col.b / 255;
+    let xmax = Math.max(R, G, B);
+    let xmin = Math.min(R, G, B);
+    let C = xmax - xmin;
+    let h, s, v;
+    v = xmax;
+    h = (
+      C === 0
+        ? 0 
+      : v === R
+        ? 60 * (G - B) / C 
+      : v === G
+        ? 60 * (2 + (B - R) / C)
+      : v === B
+        ? 60 * (4 + (R - G) / C) 
+      : 0
+    );
+    s = v == 0 ? 0 : C / v;
+    return { h: h < 0 ? h + 360 : h, s: s, v: v, };
+  }
+
+  function hsv_to_rgb(col) {
+    let C = col.v * col.s;
+    let H = col.h / 60;
+    let X = C * (1 - Math.abs((H % 2) - 1));
+    
+    let [ R, G, B, ] = (
+      0 <= H && H <= 1 
+        ? [ C, X, 0, ]
+      : H <= 2 
+        ? [ X, C, 0, ] 
+      : H <= 3 
+        ? [ 0, C, X, ] 
+      : H <= 4 
+        ? [ 0, X, C, ] 
+      : H <= 5
+        ? [ X, 0, C, ]
+      : H <= 6
+        ? [ C, 0, X, ] 
+      : [ 0, 0, 0, ]
+    );
+
+    let m = col.v - C;
+    let r = R + m, 
+        g = G + m, 
+        b = B + m;
+
+    return { r: r * 255, g: g * 255, b: b * 255, };
+  }
+
+
+  function roundRect(ctx, x, y, width, height, radius, fill, stroke) {
+    if(typeof stroke === 'undefined')
+      stroke = false;
+    if(typeof radius === 'undefined')
+      radius = 5;
+    ctx.beginPath();
+    ctx.moveTo(x + radius, y);
+    ctx.lineTo(x + width - radius, y);
+    ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
+    ctx.lineTo(x + width, y + height - radius);
+    ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
+    ctx.lineTo(x + radius, y + height);
+    ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
+    ctx.lineTo(x, y + radius);
+    ctx.quadraticCurveTo(x, y, x + radius, y);
+    ctx.closePath();
+    if(stroke)
+      ctx.stroke();
+    if(fill)
+      ctx.fill();
+  }
+
+  function hex_to_rgb(hex) {
+    hex = hex.replace('#', '');
+    return {
+      r: parseInt(hex.substring(0, 2), 16),
+      g: parseInt(hex.substring(2, 4), 16),
+      b: parseInt(hex.substring(4, 6), 16),
+    };
+  }
+
+  function rgb_to_hex(col) {
+    return `#${col.r.toString(16).padStart(2, '0')}${col.g.toString(16).padStart(2, '0')}${col.b.toString(16).padStart(2, '0')}`
+  }
+
+  function close(c0, c1, rr = 1, rg = rr, rb = rr) {
+    return Math.abs(c0.r - c1.r) < rr &&
+          Math.abs(c0.g - c1.g) < rg &&
+          Math.abs(c0.b - c1.b) < rb;
+  }
+
+  function i(src) {
+    let img = new Image();
+    img.src = src;
+    img.crossOrigin = 'Anonymous';
+    img.width = img.height = 47;
+    return img;
+  }
+}
