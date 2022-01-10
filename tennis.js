@@ -301,7 +301,6 @@ if(window.snake) {
             const br_pix = br_data.data;
 
             settings.custom_gradient = settings.custom_gradient || [ '#0095ff', '#ff004d', ];
-            settings.custom_yinyang  = settings.custom_yinyang  || [ '#ff5a00', '#00ffb3', ];
 
             let snek1 = hex_to_rgb(settings.custom_gradient[0]);
             let snek2 = hex_to_rgb(settings.custom_gradient[1]);
@@ -346,8 +345,6 @@ if(window.snake) {
             const br2_data = br2_ctx.getImageData(0, 0, 47, 47);
             const br2_pix = br2_data.data;
 
-            let snek21 = hex_to_rgb(settings.custom_yinyang[0]);
-            let snek22 = hex_to_rgb(settings.custom_yinyang[1]);
             let snek2_eye = rgb_to_hsv(snek21);
             snek2_eye.s = Math.min(snek2_eye.s + .13, 1);
             snek2_eye.v = Math.max(snek2_eye.v - .62, 0);
@@ -398,23 +395,6 @@ if(window.snake) {
             
 
 
-            eval(
-              code.match(
-                /[a-zA-Z0-9_$]{1,8}=\[\["#4E7CF6","#17439F"\],[^]*?"#6B6B6B"\]\]/
-              )[0].replace(
-                '"#6B6B6B"]]',
-                `"#6B6B6B"], ["${settings.custom_gradient[0]}", "${settings.custom_gradient[1]}"], ["${settings.custom_yinyang[0]}", "${settings.custom_yinyang[1]}"]]`
-              )
-            );
-
-            eval(
-              code.match(
-                /[a-zA-Z0-9_$]{1,8}=\[5,4,7,7,1,2,0,3,9,8,0,14,15,15,11,12,17,16\]/
-              )[0].replace(
-                ']', ', 19, 18]'
-              )
-            );
-            
             if(settings.grey_skull || settings.burger || settings.cactus || settings.hotdog || settings.egg || settings.lime || settings.red_pepper || settings.cane || settings.cracker || settings.tree || settings.custom_url) {
               const normal = {
                 burg:    i('https://i.postimg.cc/B6ycxmBb/porga.png'),
@@ -884,7 +864,6 @@ if(window.snake) {
       dark_ee:         '#B6D5E1',
       buttons:         '#90B6D1', 
       custom_gradient: [ '#ff0000', '#008800', ],
-      custom_yinyang:  [ '#000000', '#000000', ],
       cane:            true,
       cracker:         true,
       tree:            true,
