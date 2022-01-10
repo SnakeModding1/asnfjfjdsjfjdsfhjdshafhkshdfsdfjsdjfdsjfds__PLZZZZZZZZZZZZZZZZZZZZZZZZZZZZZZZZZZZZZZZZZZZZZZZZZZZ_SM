@@ -783,7 +783,7 @@ if(window.snake) {
   window.snake.christmas = function() {
     return window.snake.scheme({
       score_bar:       '#820003', 
-      borders:         '#710000', 
+      borders:         '#3da62b', 
       walls:           '#8a0000', 
       background:      '#000000', 
       shadows:         '#275812', 
