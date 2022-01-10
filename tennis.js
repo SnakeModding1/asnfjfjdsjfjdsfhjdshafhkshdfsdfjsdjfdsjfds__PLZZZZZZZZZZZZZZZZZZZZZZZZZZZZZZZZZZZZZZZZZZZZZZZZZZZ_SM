@@ -336,6 +336,12 @@ if(window.snake) {
             }
 
 
+            br_ctx.putImageData(br_data, 0, 0);
+
+            console.log(br_.toDataURL());
+
+
+
 
             if(document.querySelector('#color').childElementCount > 18)
               for(let i = document.querySelector('#color').childElementCount - 1; i >= 19; i--)
