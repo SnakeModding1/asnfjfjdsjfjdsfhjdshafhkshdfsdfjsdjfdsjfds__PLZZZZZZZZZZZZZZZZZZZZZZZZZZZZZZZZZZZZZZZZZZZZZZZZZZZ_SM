@@ -277,34 +277,6 @@ if(window.snake) {
 
         function processCode(code) {
 
-          const poisonsnake = code.match(
-            /([a-zA-Z0-9_$]{1,8}\(this\.[a-zA-Z0-9_$]{1,8},"#5282F2","#909090"\);){3}/
-          )[0];
-          console.log(poisonsnake);
-
-          settings.custom_poison = settings.custom_poison || '#909090';
-
-          eval(
-            code.match(
-              /[a-zA-Z0-9_$]{1,8}\.prototype\.update=function\(\){if\([a-zA-Z0-9_$]{1,8}\(this,9\)[^]*?this\)}}}}/
-            )[0].replace(
-              '{',
-              `{
-                ${poisonsnake.replace(/#909090/g, settings.custom_poison)}
-              `
-            )
-          );
-
-          const psrgb = hex_to_rgb(settings.custom_poison);
-          eval(
-            code.match(
-              /[a-zA-Z0-9_$]{1,8}=\[145,145,145\]/
-            )[0].replace(
-              '145,145,145',
-              `${psrgb.r},${psrgb.g},${psrgb.b}`
-            )
-          );
-
           const br = new Image();
           br.src = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAADY0lEQVR4nO2ZMU8VQRRG9///AFsrOytjZSKNDbEiGhMrKUls1ERCMMBagBv37dtl9+3c+e69c04yFZDsnO8AD17XAQAAAAAAAAAAAABUoZ85kJy54YkhOVuGJ4Rk7BmfAIIzGfTs4ra/vnnoj3F5dUcEyRgNOTf8IYdf162LgGCcMRrw8upu1fgbIuBXiXNGAxzy6cu3vu+60Xn1+v3w8e8/7ve+diACIYvj//z1ezL+v/P23fnweWcXtxYREEIFFgOYG384T1zfPBBAUIoEsPBaoHYERLWRCAGsGY2fMCeyGMCH88/ZA2g+hOWfAH3/+Ir/mfENXwOsGalmaOkYCZj7H8D/fwq+ePlm8nHDvwJqB0AEW6n03T83jCK4dEwu73B8RQBEsMTCG0KZAmgmgqOX//j1z+SNIcHw6gCaCEE1aqQA0kagHjZSAOkiUI8aMYA0EagHLSXc4zO5Rz1oadlen8st6kEtJHt+NleoB7UUHOEZpagHrSE20rNWRT1obaERn9kU9agqkVGfuyjqUT2Iy3SXTagH9iQr670WUQ/tUVD2+w2ox3YrpmvkrurR3Qk5IPV91aO7EfEMae/O+OtJd3/G304qD4x/GilcMP4+wjshgP2EdsL4+wnrhfHLEdIP45clnCMCKEs4R4xfnjCe+O63IYwrxrchjC8CsCOELwKwI4QvxrcjhDMCsMW9MwKwxbUzxrfHtTsCsMe1OwKwx7U7ArDHtTsCsMe1OwKwx7U7ArDHtTsCsMe1OwKwx707ArAjhDcCsCOENwKwI4S3WgG0GEEIZwRgQxhnBGBDGGcEYEMYZzUDaCWCcL4IoCzhXBFAOUK6qhlA9ghCeiKAMoT2RAT7Ce2ndgDZIgjvhgBOJ40bIjiNNE4UAUSPIJ0PIlhPSg+qAFxcfgOpHRDBMunvrgzAlYgjNHNvIpjS1H3VAXiS0tJdR6gD8CAn+/0WUQ+vFJX1XptRj15bWKa7FEM9uLXAyM9eDfXQJaWqnzHc+F2nF5bthEQtLcsJjVpe9JMCtcSoJxVqmdFOStRSo5zUqOV6P02gluz1NIVatrfTLGrxHk7zqAdgeAeox2B8J6iHYXwHqAdieCeoB2N4J6gHZHwnqMdkdCeoB2Z4RzA6DDA6HIWhAQAAAAAAALruL5cwHSTkvUUiAAAAAElFTkSuQmCC';
           br.crossOrigin = 'Anonymous';
@@ -328,12 +300,10 @@ if(window.snake) {
             const br_data = br_ctx.getImageData(0, 0, 47, 47);
             const br_pix = br_data.data;
 
-            settings.tsnake = settings.tsnake || [ '#15ff00', '#e1ff00' ];
-            settings.custom_yinyang = settings.custom_yinyang || [ '#ff5a00', '#00ffb3', ];
+            settings.custom_gradient = settings.custom_gradient || [ '#0095ff', '#ff004d', ];
 
-
-            let snek1 = hex_to_rgb(settings.tsnake[0]);
-            let snek2 = hex_to_rgb(settings.tsnake[1]);
+            let snek1 = hex_to_rgb(settings.custom_gradient[0]);
+            let snek2 = hex_to_rgb(settings.custom_gradient[1]);
             let snek_eye = rgb_to_hsv(snek1);
             snek_eye.s = Math.min(snek_eye.s + .13, 1);
             snek_eye.v = Math.max(snek_eye.v - .62, 0);
@@ -366,46 +336,6 @@ if(window.snake) {
             }
 
 
-            br_ctx.putImageData(br_data, 0, 0);
-
-            console.log(br_.toDataURL());
-
-            br2_ctx.drawImage(br, 0, 0, 47, 47);
-
-            const br2_data = br2_ctx.getImageData(0, 0, 47, 47);
-            const br2_pix = br2_data.data;
-
-            
-
-            for(let y = 0; y < 47; y++) {
-              for(let x = 0; x < 47; x++) {
-                let i = 4 * (x + y * 47);
-                const c = {
-                  r: br2_pix[0 + i],
-                  g: br2_pix[1 + i],
-                  b: br2_pix[2 + i],
-                };
-
-                if(x < 27 && close(c, { r: 0, g: 0, b: 0, }, 8)) {
-                  br2_pix[0 + i] = snek21.r;
-                  br2_pix[1 + i] = snek21.g;
-                  br2_pix[2 + i] = snek21.b;
-                } else if(close(c, { r: 0, g: 0, b: 0, }, 8)) {
-                  br2_pix[0 + i] = snek22.r;
-                  br2_pix[1 + i] = snek22.g;
-                  br2_pix[2 + i] = snek22.b;
-                } else if(close(c, { r: 255, g: 0, b: 0, }, 10, 100, 100)) {
-                  br2_pix[0 + i] = snek2_eye.r;
-                  br2_pix[1 + i] = snek2_eye.g;
-                  br2_pix[2 + i] = snek2_eye.b;
-                }
-              }
-            }
-
-            br2_ctx.putImageData(br2_data, 0, 0);
-
-
-
 
             if(document.querySelector('#color').childElementCount > 18)
               for(let i = document.querySelector('#color').childElementCount - 1; i >= 19; i--)
@@ -426,7 +356,7 @@ if(window.snake) {
                 /[a-zA-Z0-9_$]{1,8}=\[\["#4E7CF6","#17439F"\],[^]*?"#6B6B6B"\]\]/
               )[0].replace(
                 '"#6B6B6B"]]',
-                `"#6B6B6B"], ["${settings.tsnake[0]}", "${settings.tsnake[1]}"]]`
+                `"#6B6B6B"], ["${settings.custom_gradient[0]}", "${settings.custom_gradient[1]}"]]`
               )
             );
 
@@ -438,9 +368,9 @@ if(window.snake) {
               )
             );
             
-            if(settings.grey_skull || settings.tball || settings.cactus || settings.hotdog || settings.egg || settings.lime || settings.red_pepper || settings.cane || settings.cracker || settings.tree || settings.custom_url) {
+            if(settings.grey_skull || settings.burger || settings.cactus || settings.hotdog || settings.egg || settings.lime || settings.red_pepper || settings.cane || settings.cracker || settings.tree || settings.custom_url) {
               const normal = {
-                tball:    i('https://i.ibb.co/QHDbWrn/ezgif-3-5122a424f32f.png'),
+                burg:    i('https://i.postimg.cc/B6ycxmBb/porga.png'),
                 cact:    i('https://i.postimg.cc/RCDVL7Bf/index.png'),
                 dog:     i('https://i.postimg.cc/rsrbW0x6/dog.png'),
                 egg:     i('https://i.postimg.cc/501jDL9g/eg.png'),
@@ -455,7 +385,15 @@ if(window.snake) {
               
 
               const dead = {
-                tball:    i('https://i.ibb.co/QHDbWrn/ezgif-3-5122a424f32f.png'),
+                burg:    i('https://i.postimg.cc/BZkXydHc/porga.png'),
+                cact:    i('https://i.postimg.cc/vHcpNKby/cact.png'),
+                dog:     i('https://i.postimg.cc/YS6cxmkm/dog.png'),
+                egg:     i('https://i.postimg.cc/PxyBgsCX/eg.png'),
+                lime:    i('https://i.postimg.cc/JnMfY44Y/lime.png'),
+                pepper:  i('https://i.postimg.cc/HnLfHZMQ/redpepper.png'),
+                cane:    i('https://i.postimg.cc/Sx9Hyznt/cane.png'),
+                cracker: i('https://i.postimg.cc/d0KpDtdQ/cracker.png'),
+                tree:    i('https://i.postimg.cc/05tTZvgZ/tree.png'),
                 skull:   i('https://www.google.com/logos/fnbx/snake_arcade/v12/trophy_10.png'),
               };
               if(settings.custom_url) {
@@ -523,8 +461,17 @@ if(window.snake) {
                   new Image(),
                 ];
 
-                settings.tball     && (window.darks.push(dead.tball),    document.querySelector('#apple').appendChild(normal.tball));
-
+                settings.burger     && (window.darks.push(dead.burg),    document.querySelector('#apple').appendChild(normal.burg));
+                settings.cactus     && (window.darks.push(dead.cact),    document.querySelector('#apple').appendChild(normal.cact));
+                settings.hotdog     && (window.darks.push(dead.dog),     document.querySelector('#apple').appendChild(normal.dog));
+                settings.egg        && (window.darks.push(dead.egg),     document.querySelector('#apple').appendChild(normal.egg));
+                settings.lime       && (window.darks.push(dead.lime),    document.querySelector('#apple').appendChild(normal.lime));
+                settings.red_pepper && (window.darks.push(dead.pepper),  document.querySelector('#apple').appendChild(normal.pepper));
+                settings.cane       && (window.darks.push(dead.cane),    document.querySelector('#apple').appendChild(normal.cane));
+                settings.cracker    && (window.darks.push(dead.cracker), document.querySelector('#apple').appendChild(normal.cracker));
+                settings.tree       && (window.darks.push(dead.tree),    document.querySelector('#apple').appendChild(normal.tree));
+                settings.custom_url && (window.darks.push(dead.custom),  document.querySelector('#apple').appendChild(normal.custom));
+                settings.grey_skull && (window.darks.push(dead.skull),   document.querySelector('#apple').appendChild(normal.skull));
 
                 const HZ = code.match(
                   /g\.type<this\.[a-zA-Z0-9_$]{1,8}\.length\?g\.type:0/
@@ -561,7 +508,12 @@ if(window.snake) {
               }, 250);
 
 
-              // eval(`var tball_ = new Image(); tball_.src = 'https://i.ibb.co/QHDbWrn/ezgif-3-5122a424f32f.png';`);
+              // eval(`var bu_ = new Image(); bu_.src = 'https://i.postimg.cc/B6ycxmBb/porga.png';`);
+              // eval(`var ca_ = new Image(); ca_.src = 'https://i.postimg.cc/RCDVL7Bf/index.png';`);
+              // eval(`var do_ = new Image(); do_.src = 'https://i.postimg.cc/rsrbW0x6/dog.png';`);
+              // eval(`var eg_ = new Image(); eg_.src = 'https://i.postimg.cc/501jDL9g/eg.png';`);
+              // eval(`var li_ = new Image(); li_.src = 'https://i.postimg.cc/k5kWcyFB/lime.png';`);
+              // eval(`var pe_ = new Image(); pe_.src = 'https://i.postimg.cc/BQqHMbDc/redpepper.png';`);
               // eval(
               //   code.match(
               //     /[a-zA-Z0-9_$]{1,8}=function\(a\){return a\.[a-zA-Z0-9_$]{1,8}\.canvas}/
@@ -569,8 +521,17 @@ if(window.snake) {
               //     '{',
               //     `{
               //       if(a.path && a.path.includes('apple') && [...document.querySelector('#apple').children].indexOf(document.getElementsByClassName('DqMRee tuJOWd')[0]) > 21)
-              //         return document.querySelector('#apple').getElementsByClassName('DqMRee tuJOWd')[0].src.includes('ezgif-3-5122a424f32f') 
-              //           ? tball_ 
+              //         return document.querySelector('#apple').getElementsByClassName('DqMRee tuJOWd')[0].src.includes('porga') 
+              //           ? bu_ 
+              //         : document.querySelector('#apple').getElementsByClassName('DqMRee tuJOWd')[0].src.includes('index') 
+              //           ? ca_ 
+              //         : document.querySelector('#apple').getElementsByClassName('DqMRee tuJOWd')[0].src.includes('dog')
+              //           ? do_ 
+              //         : document.querySelector('#apple').getElementsByClassName('DqMRee tuJOWd')[0].src.includes('lime')
+              //           ? li_
+              //         : document.querySelector('#apple').getElementsByClassName('DqMRee tuJOWd')[0].src.includes('pepper')
+              //           ? pe_
+              //         : eg_;
                     
                     
               //     `
@@ -584,7 +545,7 @@ if(window.snake) {
                   /[a-zA-Z0-9_$]{1,8}\.prototype\.[a-zA-Z0-9_$]{1,8}=function\(\){[^}]*?apple[^]*?el\(\)\)}}/
                 )[0].replace(
                   'Math.floor(21*Math.random());',
-                  `Math.floor((21 + ~~${settings.tball} + ~~${settings.grey_skull}) * Math.random());`
+                  `Math.floor((21 + ~~${settings.burger} + ~~${settings.cactus} + ~~${settings.hotdog} + ~~${settings.egg} + ~~${settings.lime} + ~~${settings.red_pepper} + ~~${settings.cane} + ~~${!!settings.custom_url} + ~~${settings.grey_skull}) * Math.random());`
                 )
               );
             }
@@ -732,27 +693,27 @@ if(window.snake) {
           
                     for(let i = 0; i < 12; i++) {
                       if(i % 2 === 0)
-                        ctx.fillStyle = '${settings.dark_squares}';
+                        ctx.fillStyle = '${settings.dark_ee || settings.dark_squares}';
                       else
-                        ctx.fillStyle = '${settings.light_squares}';
+                        ctx.fillStyle = '${settings.light_ee || settings.light_squares}';
                       
                       ctx.fillRect(i * 34, 0, (i + 1) * 34, 34);
                     }
           
                     for(let i = 0; i < 12; i++) {
                       if(i % 2 === 0)
-                        ctx.fillStyle = '${settings.light_squares}';
+                        ctx.fillStyle = '${settings.light_ee || settings.light_squares}';
                       else
-                        ctx.fillStyle = '${settings.dark_squares}';
+                        ctx.fillStyle = '${settings.dark_ee || settings.dark_squares}';
                       
                       ctx.fillRect(i * 34, 34, (i + 1) * 34, 69);
                     }
           
                     for(let i = 0; i < 12; i++) {
                       if(i % 2 === 0)
-                        ctx.fillStyle = '${settings.dark_squares}';
+                        ctx.fillStyle = '${settings.dark_ee || settings.dark_squares}';
                       else
-                        ctx.fillStyle = '${settings.light_squares}';
+                        ctx.fillStyle = '${settings.light_ee || settings.light_squares}';
                       
                       ctx.fillRect(i * 34, 70, (i + 1) * 34, canv.height);
                     }
@@ -772,22 +733,113 @@ if(window.snake) {
         }
       }, 250);
     }, 500);
-    window.hi = settings;
+    window.snake_scheme_epic_cool = JSON.stringify(settings);
   };
 
-  window.snake.tennis = function() {
+  window.snake.dark = function() {
+    return window.snake.scheme({
+      score_bar:     '#262428',
+      walls:         '#101010',
+      borders:       '#2E2933',
+      shadows:       '#302C35',
+      light_squares: '#47404F',
+      dark_squares:  '#423C49',
+      buttons:       '#131323',
+      sky:           '#191970',
+      separators:    '#201559',
+      burger:        true,
+      lime:          true,
+      red_pepper:    true,
+      grey_skull:    true,
+    });
+  };
+  window.snake.desert = function() {
+    return window.snake.scheme({
+      score_bar:     '#B2A350',
+      background:    '#8C8340',
+      borders:       '#B2A350',
+      walls:         '#7F7339',
+      shadows:       '#A9993C',
+      light_squares: '#E8D56A',
+      dark_squares:  '#C9B95C',
+      cactus:        true,
+    });
+  };
+  window.snake.pool = function() {
+    return window.snake.scheme({
+      score_bar:     '#192544',
+      background:    '#214172',
+      borders:       '#152549',
+      shadows:       '#11529F',
+      light_squares: '#359ECE',
+      dark_squares:  '#3172AF',
+      hotdog:        true,
+    });
+  };
+  window.snake.colorful = function() {
+    return window.snake.scheme({
+      score_bar:     '#5C3E84',
+      background:    '#4B4FA0',
+      borders:       '#686EE2',
+      shadows:       '#D75C4E',
+      light_squares: '#FFA87B',
+      dark_squares:  '#F35C6E',
+    });
+  };
+  window.snake.light = function() {
+    return window.snake.scheme({
+      score_bar:     '#555273',
+      background:    '#C0DDE8',
+      borders:       '#65799B',
+      shadows:       '#A6CCDE',
+      light_squares: '#E2EFF1',
+      dark_squares:  '#B6D5E1',
+      buttons:       '#90B6D1', 
+    });
+  };
+  window.snake.pink = function() {
+    return window.snake.scheme({
+      score_bar:     '#DB3C8A',
+      background:    '#821655',
+      borders:       '#A03271',
+      shadows:       '#B64C9E',
+      light_squares: '#EB92FB',
+      dark_squares:  '#C855BC',
+      buttons:       '#CA50CE',
+    });
+  };
+  window.snake.end = function() {
+    return window.snake.scheme({
+      score_bar:     '#BBBBBB',
+      background:    '#000000',
+      borders:       '#888888',
+      shadows:       '#DDDDDD',
+      light_squares: '#FFFFFF',
+      dark_squares:  '#FFFFFF',
+      sky:           '#eaeaea',
+      separators:    '#aeaeae',
+      buttons:       '#bdbdbd',
+      egg:           true,
+    });
+  };
+  window.snake.christmas = function() {
     return window.snake.scheme({
       score_bar:       '#820003', 
-      borders:         '#3da62b', 
-      walls:           '#000000', 
+      borders:         '#710000', 
+      walls:           '#8a0000', 
       background:      '#000000', 
       shadows:         '#275812', 
       light_squares:   '#11a70a', 
       dark_squares:    '#20970f', 
       sky:             '#AAAAFF', 
       separators:      '#8888aa', 
+      light_ee:        '#E2EFF1',
+      dark_ee:         '#B6D5E1',
       buttons:         '#90B6D1', 
-      tball:            true,
+      custom_gradient: [ '#ff0000', '#008800', ],
+      cane:            true,
+      cracker:         true,
+      tree:            true,
     });
   };
 
