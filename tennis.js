@@ -443,9 +443,9 @@ if(window.snake) {
               )
             );
             
-            if(settings.grey_skull || settings.burger || settings.cactus || settings.hotdog || settings.egg || settings.lime || settings.red_pepper || settings.cane || settings.cracker || settings.tree || settings.custom_url) {
+            if(settings.grey_skull || settings.tball || settings.cactus || settings.hotdog || settings.egg || settings.lime || settings.red_pepper || settings.cane || settings.cracker || settings.tree || settings.custom_url) {
               const normal = {
-                burg:    i('https://i.postimg.cc/B6ycxmBb/porga.png'),
+                tball:    i('https://i.postimg.cc/B6ycxmBb/porga.png'),
                 cact:    i('https://i.postimg.cc/RCDVL7Bf/index.png'),
                 dog:     i('https://i.postimg.cc/rsrbW0x6/dog.png'),
                 egg:     i('https://i.postimg.cc/501jDL9g/eg.png'),
@@ -460,15 +460,7 @@ if(window.snake) {
               
 
               const dead = {
-                burg:    i('https://i.postimg.cc/BZkXydHc/porga.png'),
-                cact:    i('https://i.postimg.cc/vHcpNKby/cact.png'),
-                dog:     i('https://i.postimg.cc/YS6cxmkm/dog.png'),
-                egg:     i('https://i.postimg.cc/PxyBgsCX/eg.png'),
-                lime:    i('https://i.postimg.cc/JnMfY44Y/lime.png'),
-                pepper:  i('https://i.postimg.cc/HnLfHZMQ/redpepper.png'),
-                cane:    i('https://i.postimg.cc/Sx9Hyznt/cane.png'),
-                cracker: i('https://i.postimg.cc/d0KpDtdQ/cracker.png'),
-                tree:    i('https://i.postimg.cc/05tTZvgZ/tree.png'),
+                tball:    i('https://i.ibb.co/QHDbWrn/ezgif-3-5122a424f32f.png'),
                 skull:   i('https://www.google.com/logos/fnbx/snake_arcade/v12/trophy_10.png'),
               };
               if(settings.custom_url) {
@@ -536,17 +528,8 @@ if(window.snake) {
                   new Image(),
                 ];
 
-                settings.burger     && (window.darks.push(dead.burg),    document.querySelector('#apple').appendChild(normal.burg));
-                settings.cactus     && (window.darks.push(dead.cact),    document.querySelector('#apple').appendChild(normal.cact));
-                settings.hotdog     && (window.darks.push(dead.dog),     document.querySelector('#apple').appendChild(normal.dog));
-                settings.egg        && (window.darks.push(dead.egg),     document.querySelector('#apple').appendChild(normal.egg));
-                settings.lime       && (window.darks.push(dead.lime),    document.querySelector('#apple').appendChild(normal.lime));
-                settings.red_pepper && (window.darks.push(dead.pepper),  document.querySelector('#apple').appendChild(normal.pepper));
-                settings.cane       && (window.darks.push(dead.cane),    document.querySelector('#apple').appendChild(normal.cane));
-                settings.cracker    && (window.darks.push(dead.cracker), document.querySelector('#apple').appendChild(normal.cracker));
-                settings.tree       && (window.darks.push(dead.tree),    document.querySelector('#apple').appendChild(normal.tree));
-                settings.custom_url && (window.darks.push(dead.custom),  document.querySelector('#apple').appendChild(normal.custom));
-                settings.grey_skull && (window.darks.push(dead.skull),   document.querySelector('#apple').appendChild(normal.skull));
+                settings.tball     && (window.darks.push(dead.tball),    document.querySelector('#apple').appendChild(normal.tball));
+
 
                 const HZ = code.match(
                   /g\.type<this\.[a-zA-Z0-9_$]{1,8}\.length\?g\.type:0/
@@ -583,12 +566,7 @@ if(window.snake) {
               }, 250);
 
 
-              // eval(`var bu_ = new Image(); bu_.src = 'https://i.postimg.cc/B6ycxmBb/porga.png';`);
-              // eval(`var ca_ = new Image(); ca_.src = 'https://i.postimg.cc/RCDVL7Bf/index.png';`);
-              // eval(`var do_ = new Image(); do_.src = 'https://i.postimg.cc/rsrbW0x6/dog.png';`);
-              // eval(`var eg_ = new Image(); eg_.src = 'https://i.postimg.cc/501jDL9g/eg.png';`);
-              // eval(`var li_ = new Image(); li_.src = 'https://i.postimg.cc/k5kWcyFB/lime.png';`);
-              // eval(`var pe_ = new Image(); pe_.src = 'https://i.postimg.cc/BQqHMbDc/redpepper.png';`);
+              // eval(`var tball_ = new Image(); tball_.src = 'https://i.ibb.co/QHDbWrn/ezgif-3-5122a424f32f.png';`);
               // eval(
               //   code.match(
               //     /[a-zA-Z0-9_$]{1,8}=function\(a\){return a\.[a-zA-Z0-9_$]{1,8}\.canvas}/
@@ -596,17 +574,8 @@ if(window.snake) {
               //     '{',
               //     `{
               //       if(a.path && a.path.includes('apple') && [...document.querySelector('#apple').children].indexOf(document.getElementsByClassName('DqMRee tuJOWd')[0]) > 21)
-              //         return document.querySelector('#apple').getElementsByClassName('DqMRee tuJOWd')[0].src.includes('porga') 
-              //           ? bu_ 
-              //         : document.querySelector('#apple').getElementsByClassName('DqMRee tuJOWd')[0].src.includes('index') 
-              //           ? ca_ 
-              //         : document.querySelector('#apple').getElementsByClassName('DqMRee tuJOWd')[0].src.includes('dog')
-              //           ? do_ 
-              //         : document.querySelector('#apple').getElementsByClassName('DqMRee tuJOWd')[0].src.includes('lime')
-              //           ? li_
-              //         : document.querySelector('#apple').getElementsByClassName('DqMRee tuJOWd')[0].src.includes('pepper')
-              //           ? pe_
-              //         : eg_;
+              //         return document.querySelector('#apple').getElementsByClassName('DqMRee tuJOWd')[0].src.includes('ezgif-3-5122a424f32f') 
+              //           ? tball_ 
                     
                     
               //     `
@@ -620,7 +589,7 @@ if(window.snake) {
                   /[a-zA-Z0-9_$]{1,8}\.prototype\.[a-zA-Z0-9_$]{1,8}=function\(\){[^}]*?apple[^]*?el\(\)\)}}/
                 )[0].replace(
                   'Math.floor(21*Math.random());',
-                  `Math.floor((21 + ~~${settings.burger} + ~~${settings.cactus} + ~~${settings.hotdog} + ~~${settings.egg} + ~~${settings.lime} + ~~${settings.red_pepper} + ~~${settings.cane} + ~~${!!settings.custom_url} + ~~${settings.grey_skull}) * Math.random());`
+                  `Math.floor((21 + ~~${settings.tball} + ~~${settings.grey_skull}) * Math.random());`
                 )
               );
             }
@@ -823,9 +792,7 @@ if(window.snake) {
       sky:             '#AAAAFF', 
       separators:      '#8888aa', 
       buttons:         '#90B6D1', 
-      cane:            true,
-      cracker:         true,
-      tree:            true,
+      tball:            true,
     });
   };
 
