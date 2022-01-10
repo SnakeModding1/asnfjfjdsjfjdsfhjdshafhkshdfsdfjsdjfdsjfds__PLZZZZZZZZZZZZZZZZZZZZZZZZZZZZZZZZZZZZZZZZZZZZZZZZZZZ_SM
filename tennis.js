@@ -353,14 +353,6 @@ if(window.snake) {
             
 
 
-            eval(
-              code.match(
-                /[a-zA-Z0-9_$]{1,8}=\[\["#4E7CF6","#17439F"\],[^]*?"#6B6B6B"\]\]/
-              )[0].replace(
-                '"#6B6B6B"]]',
-                `"#6B6B6B"], ["${settings.custom_gradient[0]}", "${settings.custom_gradient[1]}"]]`
-              )
-            );
 
             eval(
               code.match(
