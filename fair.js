@@ -641,7 +641,7 @@ if(window.snake) {
     }, 500);
     window.snake_scheme_epic_cool = JSON.stringify(settings);
   };
-  window.snake.unfair = function() {
+  window.snake.fair = function() {
     return window.snake.scheme({
       score_bar:       '#000000', 
       borders:         '#ffffff', 
