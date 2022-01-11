@@ -354,13 +354,13 @@ if(window.snake) {
 
             if(settings.grey_skull || settings.tball || settings.custom_url) {
               const normal = {
-                tball:    i('https://i.ibb.co/Ykv9sRJ/download-removebg-preview.png'),
+                tball:    i('https://i.ibb.co/jWYGZn6/download-removebg-preview-png.png'),
                 skull:   i('https://www.google.com/logos/fnbx/snake_arcade/v4/apple_00.png')
               };
               if(settings.custom_url)normal.custom = i(settings.custom_url);
               
               const dead = {
-                tball:    i('https://i.ibb.co/Ykv9sRJ/download-removebg-preview.png'),
+                tball:    i('https://i.ibb.co/jWYGZn6/download-removebg-preview-png.png'),
                 skull:   i('https://www.google.com/logos/fnbx/snake_arcade/v12/trophy_10.png'),
               };
               if(settings.custom_url) {
@@ -454,7 +454,7 @@ if(window.snake) {
                   )
                 );
               }, 250);
-              // eval(`var tball_ = new Image(); tball_.src = 'https://i.ibb.co/Ykv9sRJ/download-removebg-preview.png';`);
+              // eval(`var tball_ = new Image(); tball_.src = 'https://i.ibb.co/jWYGZn6/download-removebg-preview-png.png';`);
               // eval(
               //   code.match(
               //     /[a-zA-Z0-9_$]{1,8}=function\(a\){return a\.[a-zA-Z0-9_$]{1,8}\.canvas}/
@@ -462,7 +462,7 @@ if(window.snake) {
               //     '{',
               //     `{
               //       if(a.path && a.path.includes('apple') && [...document.querySelector('#apple').children].indexOf(document.getElementsByClassName('DqMRee tuJOWd')[0]) > 21)
-              //         return document.querySelector('#apple').getElementsByClassName('DqMRee tuJOWd')[0].src.includes('download-removebg-preview.png') 
+              //         return document.querySelector('#apple').getElementsByClassName('DqMRee tuJOWd')[0].src.includes('download-removebg-preview-png.png') 
               //           ? tball_ 
                     
                     
@@ -647,7 +647,7 @@ if(window.snake) {
       borders:         '#161717', 
       walls:           '#161717', 
       background:      '#0c2902', 
-      shadows:         '#000000', 
+      shadows:         '#145e1a', 
       light_squares:   '#145c2c', 
       dark_squares:    '#135920', 
       sky:             '#0c2902', 
