@@ -655,8 +655,8 @@ if(window.snake) {
       light_ee:        '#a4e312',
       dark_ee:         '#17209c',
       buttons:         '#151b69', 
-  snaket:  [ '#000000', '#000000', ],
-      tsnake:  [ '#000000', '#262424', ],
+  snaket:  [ '#85b811', '#141b78', ],
+      tsnake:  [ '#141b78', '#85b811', ],
       tball:            true,
     });
   };
