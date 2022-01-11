@@ -3,7 +3,7 @@ if(window.snake) {
     
     if(settings.score_bar === undefined)
       settings.score_bar = settings.scoreBar || '#4A752C';
-    if(settings.borders === undefined)
+    if(settings.borders === undefined)snake
       settings.borders = '#578A34';
     if(settings.walls === undefined)
       settings.walls = settings.borders;
