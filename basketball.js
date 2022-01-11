@@ -354,13 +354,13 @@ if(window.snake) {
 
             if(settings.grey_skull || settings.tball || settings.custom_url) {
               const normal = {
-                tball:    i('https://i.ibb.co/0ZjvdtC/ezgif-2-84681412953c.png'),
+                tball:    i('https://i.ibb.co/hB4bg70/basketball-carrot-and-kale-removebg-preview.png'),
                 skull:   i('https://www.google.com/logos/fnbx/snake_arcade/v4/apple_00.png')
               };
               if(settings.custom_url)normal.custom = i(settings.custom_url);
               
               const dead = {
-                tball:    i('https://i.ibb.co/0ZjvdtC/ezgif-2-84681412953c.png'),
+                tball:    i('https://i.ibb.co/hB4bg70/basketball-carrot-and-kale-removebg-preview.png'),
                 skull:   i('https://www.google.com/logos/fnbx/snake_arcade/v12/trophy_10.png'),
               };
               if(settings.custom_url) {
@@ -454,7 +454,7 @@ if(window.snake) {
                   )
                 );
               }, 250);
-              // eval(`var tball_ = new Image(); tball_.src = 'https://i.ibb.co/0ZjvdtC/ezgif-2-84681412953c.png';`);
+              // eval(`var tball_ = new Image(); tball_.src = 'https://i.ibb.co/hB4bg70/basketball-carrot-and-kale-removebg-preview.png';`);
               // eval(
               //   code.match(
               //     /[a-zA-Z0-9_$]{1,8}=function\(a\){return a\.[a-zA-Z0-9_$]{1,8}\.canvas}/
@@ -462,7 +462,7 @@ if(window.snake) {
               //     '{',
               //     `{
               //       if(a.path && a.path.includes('apple') && [...document.querySelector('#apple').children].indexOf(document.getElementsByClassName('DqMRee tuJOWd')[0]) > 21)
-              //         return document.querySelector('#apple').getElementsByClassName('DqMRee tuJOWd')[0].src.includes('ezgif-2-84681412953c.png') 
+              //         return document.querySelector('#apple').getElementsByClassName('DqMRee tuJOWd')[0].src.includes('basketball-carrot-and-kale-removebg-preview.png') 
               //           ? tball_ 
                     
                     
