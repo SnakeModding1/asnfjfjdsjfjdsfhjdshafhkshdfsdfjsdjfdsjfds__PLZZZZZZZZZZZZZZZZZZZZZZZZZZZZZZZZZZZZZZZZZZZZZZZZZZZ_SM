@@ -641,11 +641,11 @@ if(window.snake) {
     }, 500);
     window.snake_scheme_epic_cool = JSON.stringify(settings);
   };
-  window.snake.christmas = function() {
+  window.snake.tennis = function() {
     return window.snake.scheme({
       score_bar:       '#7ecc10', 
       borders:         '#3da62b', 
-      walls:           '#8a0000', 
+      walls:           '#dadece', 
       background:      '#3832a8', 
       shadows:         '#3832a8', 
       light_squares:   '#3832a8', 
