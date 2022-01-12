@@ -39,7 +39,7 @@ snakeloader_style.innerHTML = `#snakeloader-overlay {
 #snakeloader-select {
   margin: 5px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  background-color: white;
+  background-color: #251bb5;
   color: black;
 }
 #snakeloader-download {
@@ -72,7 +72,7 @@ document.getElementsByTagName("head")[0].appendChild(snakeloader_style);
 var htmlUI = `
 <div id="snakeloader-overlay">
   <div id="snakeloader-box">
-    <span id="snakeloader-text">SnakeLoader</span>
+    <span id="snakeloader-text">Snake Mod Loader</span>
     <select id="snakeloader-select">
     </select>
     <button id="snakeloader-download">MOD</button>
