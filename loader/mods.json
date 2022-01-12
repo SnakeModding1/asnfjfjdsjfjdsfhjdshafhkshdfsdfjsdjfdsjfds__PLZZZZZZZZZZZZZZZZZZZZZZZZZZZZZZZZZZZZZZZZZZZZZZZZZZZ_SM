@@ -5,12 +5,8 @@
 			"url": "https://raw.githubusercontent.com/snakemoddingiscoolandthisisalongname/asnfjfjdsjfjdsfhjdshafhkshdfsdfjsdjfdsjfds__PLZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ_SM/main/tennis.js",
       "execute": "snake.tennis();"
 		},
-		{
-			"name": "My Logo",
-			"url": "https://raw.githubusercontent.com/snakemoddingiscoolandthisisalongname/asnfjfjdsjfjdsfhjdshafhkshdfsdfjsdjfdsjfds__PLZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ_SM/main/mylogo.js",
-      "execute": "snake.mylogo();"
-		},
-    {
+{
+
 			"name": "Money",
 			"url": "https://raw.githubusercontent.com/snakemoddingiscoolandthisisalongname/asnfjfjdsjfjdsfhjdshafhkshdfsdfjsdjfdsjfds__PLZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ_SM/main/money.js",
       "execute": "snake.money();"
