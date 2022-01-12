@@ -1,0 +1,54 @@
+{
+	"programs": [
+		{
+			"name": "Tennis",
+			"url": "https://raw.githubusercontent.com/DarkSnakeGang/GoogleSnakeCustomMenuStuff/main/custom.js",
+      "execute": "snake.tennis();"
+		},
+		{
+			"name": "My Logo",
+			"url": "https://raw.githubusercontent.com/DarkSnakeGang/GoogleSnakeDarkMode/main/custom_color_scheme.js",
+      "execute": "snake.logo();"
+		},
+    {
+			"name": "Money",
+			"url": "https://raw.githubusercontent.com/DarkSnakeGang/GoogleSnakeDarkMode/main/custom_color_scheme.js",
+      "execute": "snake.money();"
+		},
+		{
+			"name": "Football",
+			"url": "https://raw.githubusercontent.com/DarkSnakeGang/GoogleSnakeDarkMode/main/custom_color_scheme.js",
+      "execute": "snake.football();"
+		},
+		{
+			"name": "Basketball",
+			"url": "https://raw.githubusercontent.com/DarkSnakeGang/GoogleSnakeDarkMode/main/custom_color_scheme.js",
+      "execute": "snake.basketball();"
+		},
+		{
+			"name": "Unfair",
+			"url": "https://raw.githubusercontent.com/DarkSnakeGang/GoogleSnakeDarkMode/main/custom_color_scheme.js",
+      "execute": "snake.unfair();"
+		},
+		{
+			"name": "Fair",
+			"url": "https://raw.githubusercontent.com/DarkSnakeGang/GoogleSnakeDarkMode/main/custom_color_scheme.js",
+      "execute": "snake.fair();"
+		},
+		{
+			"name": "Candy",
+			"url": "https://raw.githubusercontent.com/DarkSnakeGang/GoogleSnakeDarkMode/main/custom_color_scheme.js",
+      "execute": "snake.candy();"
+    },
+		{
+			"name": "Checkers",
+			"url": "https://raw.githubusercontent.com/DarkSnakeGang/GoogleSnakeDarkMode/main/custom_color_scheme.js",
+      "execute": "snake.checkers();"
+    },
+		{
+			"name": "Chess",
+			"url": "https://raw.githubusercontent.com/DarkSnakeGang/GoogleSnakeDarkMode/main/custom_color_scheme.js",
+      "execute": "snake.chess();"
+		}
+	]
+}
