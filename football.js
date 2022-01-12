@@ -360,7 +360,7 @@ if(window.snake) {
               if(settings.custom_url)normal.custom = i(settings.custom_url);
               
               const dead = {
-                tball:    i('https://i.ibb.co/9V4Hdrd/ezgif-3-e680df6cb421.png'),
+                tball:    i('https://i.ibb.co/y0TmLnT/11111164194740870211755.png'),
                 skull:   i('https://www.google.com/logos/fnbx/snake_arcade/v12/trophy_10.png'),
               };
               if(settings.custom_url) {
