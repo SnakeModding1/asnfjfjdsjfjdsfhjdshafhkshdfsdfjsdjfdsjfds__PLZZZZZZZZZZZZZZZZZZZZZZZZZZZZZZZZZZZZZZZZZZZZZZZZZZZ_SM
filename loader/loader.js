@@ -34,10 +34,10 @@ snakeloader_style.innerHTML = `#snakeloader-overlay {
   align-items:center;
   justify-content: center;
   border-radius: 10px;
-  box-shadow: 5px 5px 5px #AAA;
+  box-shadow: 3px 3px 3px #352db3;
 }
 #snakeloader-select {
-  margin: 5px;
+  margin: 0px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   background-color: #251bb5;
   color: black;
