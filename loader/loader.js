@@ -1,5 +1,5 @@
 //
-// SnakeLoader - Silasss 2021
+// SnakeLoader - by Silasss edited by me
 //
 function downloadScript(url, execute) {
   fetch(url)
@@ -48,7 +48,7 @@ snakeloader_style.innerHTML = `#snakeloader-overlay {
   border: none;
   border-radius: 5px;
   color: black;
-  background-color: #CCC;
+  background-color: #251bb5;
 }
 #snakeloader-download:hover {
   cursor: pointer;
@@ -60,7 +60,7 @@ snakeloader_style.innerHTML = `#snakeloader-overlay {
   font-size: 1.5em;
   margin: 5px;
   text-align: center;
-  color: black;
+  color: white;
 }
 .snakeloader-option {
   background-color: white;
