@@ -2,52 +2,52 @@
 	"programs": [
 		{
 			"name": "Tennis",
-			"url": "https://raw.githubusercontent.com/DarkSnakeGang/GoogleSnakeCustomMenuStuff/main/custom.js",
+			"url": "https://raw.githubusercontent.com/snakemoddingiscoolandthisisalongname/asnfjfjdsjfjdsfhjdshafhkshdfsdfjsdjfdsjfds__PLZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ_SM/main/tennis.js",
       "execute": "snake.tennis();"
 		},
 		{
 			"name": "My Logo",
-			"url": "https://raw.githubusercontent.com/DarkSnakeGang/GoogleSnakeDarkMode/main/custom_color_scheme.js",
-      "execute": "snake.logo();"
+			"url": "https://raw.githubusercontent.com/snakemoddingiscoolandthisisalongname/asnfjfjdsjfjdsfhjdshafhkshdfsdfjsdjfdsjfds__PLZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ_SM/main/mylogo.js",
+      "execute": "snake.mylogo();"
 		},
     {
 			"name": "Money",
-			"url": "https://raw.githubusercontent.com/DarkSnakeGang/GoogleSnakeDarkMode/main/custom_color_scheme.js",
+			"url": "https://raw.githubusercontent.com/snakemoddingiscoolandthisisalongname/asnfjfjdsjfjdsfhjdshafhkshdfsdfjsdjfdsjfds__PLZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ_SM/main/money.js",
       "execute": "snake.money();"
 		},
 		{
 			"name": "Football",
-			"url": "https://raw.githubusercontent.com/DarkSnakeGang/GoogleSnakeDarkMode/main/custom_color_scheme.js",
+			"url": "https://raw.githubusercontent.com/snakemoddingiscoolandthisisalongname/asnfjfjdsjfjdsfhjdshafhkshdfsdfjsdjfdsjfds__PLZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ_SM/main/football.js",
       "execute": "snake.football();"
 		},
 		{
 			"name": "Basketball",
-			"url": "https://raw.githubusercontent.com/DarkSnakeGang/GoogleSnakeDarkMode/main/custom_color_scheme.js",
+			"url": "https://raw.githubusercontent.com/snakemoddingiscoolandthisisalongname/asnfjfjdsjfjdsfhjdshafhkshdfsdfjsdjfdsjfds__PLZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ_SM/main/basketball.js",
       "execute": "snake.basketball();"
 		},
 		{
 			"name": "Unfair",
-			"url": "https://raw.githubusercontent.com/DarkSnakeGang/GoogleSnakeDarkMode/main/custom_color_scheme.js",
+			"url": "https://raw.githubusercontent.com/snakemoddingiscoolandthisisalongname/asnfjfjdsjfjdsfhjdshafhkshdfsdfjsdjfdsjfds__PLZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ_SM/main/unair.js",
       "execute": "snake.unfair();"
 		},
 		{
 			"name": "Fair",
-			"url": "https://raw.githubusercontent.com/DarkSnakeGang/GoogleSnakeDarkMode/main/custom_color_scheme.js",
+			"url": "https://raw.githubusercontent.com/snakemoddingiscoolandthisisalongname/asnfjfjdsjfjdsfhjdshafhkshdfsdfjsdjfdsjfds__PLZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ_SM/main/fair.js",
       "execute": "snake.fair();"
 		},
 		{
 			"name": "Candy",
-			"url": "https://raw.githubusercontent.com/DarkSnakeGang/GoogleSnakeDarkMode/main/custom_color_scheme.js",
+			"url": "https://raw.githubusercontent.com/snakemoddingiscoolandthisisalongname/asnfjfjdsjfjdsfhjdshafhkshdfsdfjsdjfdsjfds__PLZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ_SM/main/candy.js",
       "execute": "snake.candy();"
     },
 		{
 			"name": "Checkers",
-			"url": "https://raw.githubusercontent.com/DarkSnakeGang/GoogleSnakeDarkMode/main/custom_color_scheme.js",
+			"url": "https://raw.githubusercontent.com/snakemoddingiscoolandthisisalongname/asnfjfjdsjfjdsfhjdshafhkshdfsdfjsdjfdsjfds__PLZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ_SM/main/checkers.js",
       "execute": "snake.checkers();"
     },
 		{
 			"name": "Chess",
-			"url": "https://raw.githubusercontent.com/DarkSnakeGang/GoogleSnakeDarkMode/main/custom_color_scheme.js",
+			"url": "https://raw.githubusercontent.com/snakemoddingiscoolandthisisalongname/asnfjfjdsjfjdsfhjdshafhkshdfsdfjsdjfdsjfds__PLZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ_SM/main/chess.js",
       "execute": "snake.chess();"
 		}
 	]
