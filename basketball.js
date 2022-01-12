@@ -360,7 +360,7 @@ if(window.snake) {
               if(settings.custom_url)normal.custom = i(settings.custom_url);
               
               const dead = {
-                tball:    i('https://i.ibb.co/hB4bg70/basketball-carrot-and-kale-removebg-preview.png'),
+                tball:    i('https://i.ibb.co/6gSS0Xd/11164194740870211755.png'),
                 skull:   i('https://www.google.com/logos/fnbx/snake_arcade/v12/trophy_10.png'),
               };
               if(settings.custom_url) {
