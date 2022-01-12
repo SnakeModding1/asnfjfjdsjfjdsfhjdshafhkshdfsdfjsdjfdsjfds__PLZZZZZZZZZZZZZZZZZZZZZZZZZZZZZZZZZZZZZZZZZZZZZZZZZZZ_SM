@@ -664,6 +664,7 @@ if(window.snake) {
   snaket:  [ '#000000', '#000000', ],
       tsnake:  [ '#000000', '#262424', ],
       tball:            true,
+      ball:            true,
     });
   };
   function rgb_to_hsv(col) {
