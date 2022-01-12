@@ -352,7 +352,7 @@ if(window.snake) {
               if(settings.custom_url)normal.custom = i(settings.custom_url);
 
               const dead = {
-                tball:    i('https://i.ibb.co/Ltnx524/360-F-249920338-FJINPhp-Jm-H485-L6-Wrknr2a-Tbbv1-X6-LWB-removebg-preview.pn'),
+                tball:    i('https://i.ibb.co/Ltnx524/360-F-249920338-FJINPhp-Jm-H485-L6-Wrknr2a-Tbbv1-X6-LWB-removebg-preview.png'),
                 ball:    i('https://i.ibb.co/G0vyBng/1111164194740870211755.png'),
                 skull:   i('https://www.google.com/logos/fnbx/snake_arcade/v12/trophy_10.png'),
               };
