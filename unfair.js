@@ -352,15 +352,17 @@ if(window.snake) {
               )
             );
 
-            if(settings.grey_skull || settings.tball || settings.custom_url) {
+            if(settings.grey_skull || settings.tball || settings.ball || settings.custom_url) {
               const normal = {
-                tball:    i('https://i.ibb.co/0ZjvdtC/ezgif-2-84681412953c.png'),
+                tball:    i('https://i.ibb.co/gm969Fp/unnamed.png'),
+                ball:    i('https://i.ibb.co/Ltnx524/360-F-249920338-FJINPhp-Jm-H485-L6-Wrknr2a-Tbbv1-X6-LWB-removebg-preview.png'),
                 skull:   i('https://www.google.com/logos/fnbx/snake_arcade/v4/apple_00.png')
               };
               if(settings.custom_url)normal.custom = i(settings.custom_url);
               
               const dead = {
-                tball:    i('https://i.ibb.co/0ZjvdtC/ezgif-2-84681412953c.png'),
+                tball:    i('https://i.ibb.co/gm969Fp/unnamed.png'),
+                ball:    i('https://i.ibb.co/Ltnx524/360-F-249920338-FJINPhp-Jm-H485-L6-Wrknr2a-Tbbv1-X6-LWB-removebg-preview.png'),
                 skull:   i('https://www.google.com/logos/fnbx/snake_arcade/v12/trophy_10.png'),
               };
               if(settings.custom_url) {
@@ -421,6 +423,7 @@ if(window.snake) {
                   new Image(),
                 ];
                 settings.tball     && (window.darks.push(dead.tball),    document.querySelector('#apple').appendChild(normal.tball));
+                settings.ball     && (window.darks.push(dead.ball),    document.querySelector('#apple').appendChild(normal.ball));
                 settings.custom_url && (window.darks.push(dead.custom),  document.querySelector('#apple').appendChild(normal.custom));
                 settings.grey_skull && (window.darks.push(dead.skull),   document.querySelector('#apple').appendChild(normal.skull));
                 const HZ = code.match(
@@ -454,7 +457,8 @@ if(window.snake) {
                   )
                 );
               }, 250);
-              // eval(`var tball_ = new Image(); tball_.src = 'https://i.ibb.co/0ZjvdtC/ezgif-2-84681412953c.png';`);
+              // eval(`var tball_ = new Image(); tball_.src = 'https://i.ibb.co/gm969Fp/unnamed.png';`);
+              // eval(`var ball_ = new Image(); ball_.src = 'https://i.ibb.co/Ltnx524/360-F-249920338-FJINPhp-Jm-H485-L6-Wrknr2a-Tbbv1-X6-LWB-removebg-preview.png';`);
               // eval(
               //   code.match(
               //     /[a-zA-Z0-9_$]{1,8}=function\(a\){return a\.[a-zA-Z0-9_$]{1,8}\.canvas}/
@@ -462,8 +466,10 @@ if(window.snake) {
               //     '{',
               //     `{
               //       if(a.path && a.path.includes('apple') && [...document.querySelector('#apple').children].indexOf(document.getElementsByClassName('DqMRee tuJOWd')[0]) > 21)
-              //         return document.querySelector('#apple').getElementsByClassName('DqMRee tuJOWd')[0].src.includes('ezgif-2-84681412953c.png') 
+              //         return document.querySelector('#apple').getElementsByClassName('DqMRee tuJOWd')[0].src.includes('unnamed.png') 
               //           ? tball_ 
+              //         : document.querySelector('#apple').getElementsByClassName('DqMRee tuJOWd')[0].src.includes('360-F-249920338-FJINPhp-Jm-H485-L6-Wrknr2a-Tbbv1-X6-LWB-removebg-preview.png') 
+              //           ? ball_ 
                     
                     
               //     `
@@ -474,7 +480,7 @@ if(window.snake) {
                   /[a-zA-Z0-9_$]{1,8}\.prototype\.[a-zA-Z0-9_$]{1,8}=function\(\){[^}]*?apple[^]*?el\(\)\)}}/
                 )[0].replace(
                   'Math.floor(21*Math.random());',
-                  `Math.floor((21 + ~~${settings.tball} + ~~${!!settings.custom_url} + ~~${settings.grey_skull}) * Math.random());`
+                  `Math.floor((21 + ~~${settings.tball} + ~~${settings.ball} + ~~${!!settings.custom_url} + ~~${settings.grey_skull}) * Math.random());`
                 )
               );
             }
